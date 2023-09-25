@@ -1,7 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import Registro from './componentes/Registro/Registro.jsx';
-import Alert from './componentes/Alert/Alert.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
@@ -15,12 +14,7 @@ function App() {
     setAlert(newAlert);
   };
 
-  return (
-    <>
-      <Registro onAlert={addAlert} />
-      <Alert alerta={alert} />
-    </>
-  );
+  return <Registro alert={alert} onAlert={addAlert} />;
 }
 
 export default App;
