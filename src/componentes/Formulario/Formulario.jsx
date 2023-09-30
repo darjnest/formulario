@@ -1,7 +1,7 @@
 import React from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
 
 function Formulario({ addAlert }) {
   const [inputs, setInputs] = useState({
@@ -11,21 +11,11 @@ function Formulario({ addAlert }) {
     password1: '',
   });
 
-  function inputsHandler(e) {
-    if (e.target.id === 'nombre') {
-      setInputs({ ...inputs, nombre: e.target.value });
-    }
-
-    if (e.target.id === 'email') {
-      setInputs({ ...inputs, email: e.target.value });
-    }
-
-    if (e.target.id === 'password') {
-      setInputs({ ...inputs, password: e.target.value });
-    }
-    if (e.target.id === 'password1') {
-      setInputs({ ...inputs, password1: e.target.value });
-    }
+  function inputsHandler({ target: { id, value } }) {
+    setInputs({
+      ...inputs,
+      [id]: value,
+    });
   }
 
   function validacionInputs(e) {
